@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookWorm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .book-item {
+            width: 250px;
+            height: 400px;
+            margin: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .book-item img {
+            width: 100%;
+            height: auto;
+        }
+
+        .book-item h2 {
+            margin-top: 0;
+        }
+
+        .book-item p {
+            margin-top: 0;
+        }
+
+        .book-item button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .book-item button:hover {
+            background-color: #555;
+        }
+    </style>
+    <script>
+        // script.js
+        window.onload = function() {
+            const searchBar = document.getElementById('search-bar');
+            searchBar.addEventListener('input', function(event) {
+                const searchTerm = event.target.value.toLowerCase();
+                const bookList = document.querySelectorAll('.book-item');
+                bookList.forEach(function(book) {
+                    const title = book.querySelector('h2').textContent.toLowerCase();
+                    if (!title.includes(searchTerm)) {
+                        book.style.display = 'none';
+                    } else {
+                        book.style.display = 'flex';
+                    }
+                });
+            });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#signup">Sign Up</a></li>
+            </ul>
+        </nav>
+        <label for="search-bar">Search for books:</label>
+        <input type="text" id="search-bar" placeholder="Search for books">
+    </header>
+    <main>
+        <section id="home">
+            <h1>Popular Books</h1>
+            <div class="book-list">
+                <!-- Book items will be added here -->
+                <div class="book-item">
+                    <img src="https://via.placeholder.com/150" alt="Book Cover">
+                    <h2>The Great Gatsby</h2>
+                    <p>By F. Scott Fitzgerald</p>
+                    <button>Add to cart</button>
+                </div>
+                <div class="book-item">
+                    <img src="https://via.placeholder.com/150" alt="Book Cover">
+                    <h2>To Kill a Mockingbird</h2>
+                    <p>By Harper Lee</p>
+                    <button>Add to cart</button>
+                </div>
+                <div class="book-item">
+                    <img src="https://via.placeholder.com/150" alt="Book Cover">
+                    <h2>1984</h2>
+                    <p>By George Orwell</p>
+                    <button>Add to cart</button>
+                </div>
+                <div class="book-item">
+                    <img src="https://via.placeholder.com/150" alt="Book Cover">
+                    <h2>Pride and Prejudice</h2>
+                    <p>By Jane Austen</p>
+                    <button>Add to cart</button>
+                </div>
+                <div class="book-item">
+                    <img src="https://via.placeholder.com/150" alt="Book Cover">
+                    <h2>The Catcher in the Rye</h2>
+                    <p>By J.D. Salinger</p>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <!-- About section content -->
+        </section>
+        <section id="contact">
+            <!-- Contact section content -->
+        </section>
+        <section id="signup">
+            <!-- Sign up section content -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2022 BookWorm. Terms of Service | Privacy Policy</p>
+    </footer>
+</body>
+</html>
